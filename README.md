@@ -149,6 +149,14 @@ As noted in our analysis, further improvements could be achieved by:
 - Investigating recently published architectural innovations that maintain parameter efficiency
 
 
+## 📜 Training Scripts
+
+### - To run:
+  ```
+  # Train and save submission:
+  python <file_name>.py --experiment_name test_1
+  ```  
+
 
 ## 📁 Project Structure
 
