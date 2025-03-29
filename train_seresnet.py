@@ -974,8 +974,8 @@ def accuracy(outputs, targets, topk=(1, )):
 
 # Training loop for each fold
 for fold, (train_idx, val_idx) in enumerate(kf.split(full_dataset)):
-    if fold >= 1:
-        break
+    #if fold >= 1:
+    #    break
     print(f"\n=== Training Fold {fold+1}/5 ===")
     train_subset = Subset(full_dataset, train_idx)
     val_subset = Subset(full_dataset, val_idx)
@@ -1123,7 +1123,7 @@ class EnsembleModel(torch.nn.Module):
         outputs = [model(x) for model in self.models]
         return torch.mean(torch.stack(outputs), dim=0)
 
-model_paths = [os.path.join(experiment_dir, f"fold_{i}_best.pth") for i in range(1)]
+model_paths = [os.path.join(experiment_dir, f"fold_{i}_best.pth") for i in range(5)]
 ensemble = EnsembleModel(model_paths).to(device)
 ensemble.eval()
 
